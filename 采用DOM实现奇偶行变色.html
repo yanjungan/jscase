@@ -1,0 +1,80 @@
+<!-- 
+重点在于trs[i].className="even"和trs[i].className="odd";实现奇偶行变色，只要在css中设置就行了。
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格奇偶行变色</title>
+	<style>
+		tr{
+			text-align: center;
+		}
+		.even{
+			background-color: #84df96;
+		}
+		.odd{
+			background-color: #77ac98;
+		}
+	</style>
+	<script>
+	//注册事件，如果符合条件则后面会触发该事件
+		window.onload=function(){
+			var tab=document.getElementById("t1");
+			var tbody=tab.getElementsByTagName("tbody")[0];
+			var trs=tbody.getElementsByTagName("tr");
+			for(var i=0;i<trs.length;i++){
+				/*if (i%2==0)
+					trs[i].className="even";
+				else
+					trs[i].className="odd";*/
+				trs[i].className=(i%2==0)?"even":"odd";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h2>Transform DataGrid from an existing,unformatted html table</h2>
+	<div class="demo-info">
+		<div class="demo-tip icon-tip"></div>
+		<div>Transform DataGrid from an existing,unformatted html table</div>
+	</div>
+	<div style="margin:10px 0;"></div>
+	<table id="t1" style="width:500px;height:auto">
+		<thead>
+			<tr style="background-color:#00ae9d">
+				<th>Item ID</th>
+				<th>Product</th>
+				<th>List Price</th>
+				<th>Attribute</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>EST-1</td>
+				<td>FI-SW-01</td>
+				<td>36.50</td>
+				<td>Large</td>
+			</tr>
+			<tr>
+				<td>EST-10</td>
+				<td>FI-SW-02</td>
+				<td>18.50</td>
+				<td>Spotted Adult Female</td>
+			</tr>
+			<tr>
+				<td>EST-12</td>
+				<td>FI-SW-03</td>
+				<td>28.50</td>
+				<td>Venomless</td>
+			</tr>
+			<tr>
+				<td>EST-14</td>
+				<td>FI-SW-04</td>
+				<td>35.50</td>
+				<td>Green Adult</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

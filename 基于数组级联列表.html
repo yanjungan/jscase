@@ -1,0 +1,62 @@
+<!-- 
+==============================================================
+new option(text,value,defaultSelected,selected)
+text:字符串，指定option对象的text属性(即<option></option>之间的文字)
+value:字符串，指定option对象的value属性
+defaultSelected:布尔值，指定option对象的defaultSelected属性,默认为true
+selected:布尔值，指定option对象的selected属性,默认为true
+
+ 动态删除select中的所有options： 
+ 	document.getElementById("ddlResourceType").options.length=0; 
+
+ 动态删除select中的某一项option： 
+   document.getElementById("ddlResourceType").options.remove(indx);  
+
+ 动态添加select中的项option: 
+   document.getElementById("ddlResourceType").options.add(new Option(text,value)); 
+==============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基于数组级联列表</title>
+	<script>
+		var arr=new Array();
+		//js数组支持的下标支持中文。js中的没有二维数组直说，我们仅仅是变量中又可以存储数组
+		arr['广东省']=['广州','深圳','珠海'];
+		arr['湖北省']=['武汉','襄樊','赤壁'];
+		window.onload=function(){
+			//向省会赋值下拉列表框
+			var proSel=document.getElementById("province");
+			//for in获取的是下标
+			for(temp in arr){
+				proSel.add(new Option(temp,temp));
+				　console.info("下标："+temp+",值为:"+arr[temp]);　
+			}
+		}
+		function setCity(){
+			//清空下拉列表框信息
+			var citySel=document.getElementById("city");
+			citySel.options.length=1;
+			//获取选中的省会信息,value值就是底下option的value值，即为广东省，湖北省
+			var pro=document.getElementById("province").value;
+			//如果选择的是"提示信息"就是"选择省会",则不赋值
+			if(pro=="")
+				return;
+			for(var i=0;i<arr[pro].length;i++){
+				citySel.add(new Option(arr[pro][i],arr[pro][i]));
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<select  id="province" onchange="setCity()">
+		<option value="">--选择省会--</option>
+	</select>
+	<select  id="city">
+		<option value="">--选择城市--</option>
+	</select>
+</body>
+</html>

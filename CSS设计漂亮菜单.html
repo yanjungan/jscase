@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS设计漂亮菜单</title>
+	<style>
+		#menu{
+			border: 1px solid #ccc;
+			width: 250px;
+		}
+		#menu ul{
+			list-style: none;
+			/* border:1px solid #ccc;这是一个技巧，可以用来判断内边距padding和外边距margin */
+			margin:0;
+			padding: 0;
+		}
+		#menu ul li{
+			border-bottom:1px solid #ccc;
+			/* height: 30px;
+			line-height: 30px;行间距line-height和height一致这样可以让文字居中 */
+		}
+		/* 如果设置a标签的高度则需转换成块级元素 */
+		#menu ul li a{
+			text-decoration: none;
+			display: block;
+			/* height:30px;
+			line-height: 30px; */
+			padding:10px;
+			background-color: #f6f5ec;
+			border-left: 5px solid #999;
+		}
+		#menu ul li a:hover{
+			background-color: #d9d6c3;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li><a href="">首页介绍</a></li>
+			<li><a href="">产品介绍</a></li>
+			<li><a href="">公司信息</a></li>
+			<li><a href="">人才招聘</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>
